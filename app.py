@@ -3,10 +3,9 @@ import streamlit as st
 
 st.title('Claim Prediction :bar_chart:')
 
-load = open('model.pkl','rb')
-model = pickle.load(load)
-
-
+with open('model.pkl', 'rb') as load:
+    model = pickle.load(load)
+    
 def predict(age,gender,bmi,smoker):
     prediction = model.predict([[age,gender,bmi,smoker]])
     return prediction
